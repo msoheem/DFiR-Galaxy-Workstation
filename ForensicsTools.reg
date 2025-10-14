@@ -1,0 +1,318 @@
+Windows Registry Editor Version 5.00
+
+;;;;;;;;;;;;;;;;;lnkfile;;;;;;;;;;;;;;;;;;;;;;
+; LECmd for file assiciated with lnkfile only
+; .lnk files (shortcuts) are treated by Explorer as the type of the target, therefore the list of tools will not work properly with lnk
+[HKEY_CLASSES_ROOT\lnkfile\shell\ParseDirWithLECmd]
+@="Parse with LECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\LECmd.exe"
+[HKEY_CLASSES_ROOT\lnkfile\shell\ParseDirWithLECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\LECmd.exe\" -f \"%V\"\""
+
+;;;;;;;;;;;;;;;;;body file;;;;;;;;;;;;;;;;;;;;
+
+; body file assiciation with add filesystem timeline to plaso storage
+[HKEY_CLASSES_ROOT\.body\shell\AddToPlasoStorage]
+@="Add to Plaso Storage"
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\Tools\\plaso.ico"
+[HKEY_CLASSES_ROOT\.body\shell\AddToPlasoStorage\command]
+@="\"cmd.exe\" /d /k \"\"C:\\ForensicPrograms\\DFIR_Toolbar\\PlasoAddTimelineHelper.bat\" \"%V\"\""
+
+;;;;;;;;;;;;;;;;;plaso file;;;;;;;;;;;;;;;;;;;;
+
+; plaso database assiciation with filter with psort
+[HKEY_CLASSES_ROOT\.plaso\shell\RunPsort]
+@="Run Plaso Psort"
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\Tools\\plaso.ico"
+[HKEY_CLASSES_ROOT\.plaso\shell\RunPsort\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\DFIR_Toolbar\\PlasoRunPsortHelper.bat\" \"%V\"\""
+
+
+; plaso database assiciation with filter with cdqr.exe
+[HKEY_CLASSES_ROOT\.plaso\shell\RunCdqr]
+@="Run cdqr"
+"Icon"="C:\\ForensicPrograms\\cdqr.exe"
+[HKEY_CLASSES_ROOT\.plaso\shell\RunCdqr\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\cdqr.exe\" --plaso_db \"%V\"\""
+
+;;;;;;;;;;;;;ForensicsHandler;;;;;;;;;;;;;;;;;
+[HKEY_CLASSES_ROOT\*\shell\ForensicsHandler]
+@="Parse with Forensics Tools"
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\forensics.ico"
+
+[HKEY_CLASSES_ROOT\*\shell\ForensicsHandler\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\DFIR_Toolbar\\ForensicsHandler.bat\" \"%V\"\""
+
+;;;;;;;;;;;ForensicsTools Files;;;;;;;;;;;;;;;
+; Creating Menu with cmd forensics tools 
+
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools]
+"MUIVerb"="Forensics Tools"
+"SubCommands"=""
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\Tools.ico"
+
+;;;;;;;;;; PECmd for file
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseFileWithPECmd]
+@="Parse with PECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\PECmd.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseFileWithPECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\PECmd.exe\" -f \"%V\"\""
+
+
+;;;;;;;;;; JLECmd
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithJLECmd]
+@="Parse with JLECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\JLECmd.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithJLECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\JLECmd.exe\" -f \"%V\"\""
+
+;;;;;;;;;; exiftool for file
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseFileWithExiftool]
+@="Parse with exiftool"
+"Icon"="C:\\ForensicPrograms\\exiftool-13.33_64\\exiftool(-k).exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseFileWithExiftool\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\exiftool-13.33_64\\exiftool(-k).exe\" \"%V\"\""
+
+;;;;;;;;;; HxD for file
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\OpenFileWithHxD]
+@="Open with HxD"
+"Icon"="C:\\ForensicPrograms\\HxD\\HxD.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\OpenFileWithHxD\command]
+@="\"cmd.exe\" /k \"\"C:\\ForensicPrograms\\HxD\\HxD.exe\" \"%V\"\""
+
+;;;;;;;;;; MemProcFS
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithMemProcFS]
+@="Mount with MemProcFS"
+"Icon"="C:\\ForensicPrograms\\MemProcFS\\MemProcFS.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithMemProcFS\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\MemProcFS\\MemProcFS.exe\" -device \"%V\" -forensic 1\""
+
+;;;;;;;;;; MFTECmd
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithMFTECmd]
+@="Parse with MFTECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\MFTECmd.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithMFTECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\MFTECmd.exe\" -f \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\Filesystem --body C:\\Cases\\Analysis\\!EvidenceName!\\Filesystem --bdl C\""
+
+;;;;;;;;;; AppCompatCacheParser
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithAppCompatCacheParser]
+@="Parse with AppCompatCacheParser"
+"Icon"="C:\\ForensicPrograms\\EZTools\\AppCompatCacheParser.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithAppCompatCacheParser\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\AppCompatCacheParser.exe\" -f \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\ProgramExecution\""
+
+;;;;;;;;;; AmcacheParser
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithAmcacheParser]
+@="Parse with AmcacheParser"
+"Icon"="C:\\ForensicPrograms\\EZTools\\AmcacheParser.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithAmcacheParser\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\AmcacheParser.exe\" -f \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\ProgramExecution\""
+
+;;;;;;;;;; amcache_evilhunter
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithAmcacheEvilhunter]
+@="Parse with amcache_evilhunter"
+"Icon"="C:\\ForensicPrograms\\amcache_evilhunter.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithAmcacheEvilhunter\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\amcache_evilhunter.exe\" -i \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\ProgramExecution\\amcache_evilhunter_output.csv\""
+
+
+;;;;;;;;;; RBCmd
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithRBCmd]
+@="Parse with RBCmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\RBCmd.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithRBCmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\RBCmd.exe\" -f \"%V\"\""
+
+;;;;;;;;;; EvtxECmd
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithEvtxECmd]
+@="Parse with EvtxECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\EvtxeCmd\\EvtxECmd.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithEvtxECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\EvtxeCmd\\EvtxECmd.exe\" -f \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\EventLog\""
+
+;;;;;;;;;; WxTCmd
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithWxTCmd]
+@="Parse with WxTCmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\WxTCmd.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithWxTCmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\WxTCmd.exe\" -f \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\""
+
+;;;;;;;;;; Chainsaw
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\HuntWithChainsaw]
+@="Hunt with Chainsaw"
+"Icon"="C:\\ForensicPrograms\\Chainsaw\\chainsaw.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\HuntWithChainsaw\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\Chainsaw\\chainsaw.exe\" hunt \"%V\" -s \"C:\\ForensicPrograms\\Chainsaw\\sigma\" --mapping \"C:\\ForensicPrograms\\Chainsaw\\mappings\\sigma-event-logs-all.yml\" -r \"C:\\ForensicPrograms\\Chainsaw\\rules\" --csv --output C:\\Cases\\Analysis\\!EvidenceName!\\EventLog\""
+
+;;;;;;;;;; bmc-tools
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithBmcTools]
+@="Parse with bmc-tools"
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\DFIR_Toolbar.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithBmcTools\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"python.exe\" \"C:\\ForensicPrograms\\bmc-tools-master\\bmc-tools.py\" -s \"%V\" -d \"C:\\Cases\\Analysis\\!EvidenceName!\\RDPBitmap\" -b\""
+
+;;;;;;;;;; mactime
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithMactime]
+@="Parse with mactime"
+"Icon"="C:\\Strawberry\\perl\\bin\\perl.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithMactime\command]
+@="cmd.exe /V:ON /d /k perl.exe \"C:\\ForensicPrograms\\sleuthkit-4.14.0-win32\\bin\\mactime.pl\" -z UTC -y -b \"%V\" -d > \"C:\\Cases\\Analysis\\!EvidenceName!\\Filesystem\\MFT_Mactime.csv\""
+
+;;;;;;;;;; dissect list of plugins
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\Dissect]
+"MUIVerb"="Parse with Dissect"
+"SubCommands"=""
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\Tools\\dissect.ico"
+
+;;;;;;;;;;;;;;;;;;;; Users Plugin
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\Dissect\shell\RunUsersPlugin]
+@="Run users Plugin"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\Dissect\shell\RunUsersPlugin\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"target-query\" \"%V\" -f users\""
+;"Icon"="C:\\ForensicPrograms\\.ico"
+
+;;;;;;;;;;;;;;;;;;;; osinfo Plugin
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\Dissect\shell\RunOsinfoPlugin]
+@="Run osinfo Plugin"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\Dissect\shell\RunOsinfoPlugin\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"target-query\" \"%V\" -f osinfo\""
+;"Icon"="C:\\ForensicPrograms\\.ico"
+
+;;;;;;;;;;;;;;;;;;;; runkeys Plugin
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\Dissect\shell\RunrunkeysPlugin]
+@="Run runkeys Plugin"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\Dissect\shell\RunrunkeysPlugin\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"target-query\" \"%V\" -f runkeys\""
+;"Icon"="C:\\ForensicPrograms\\.ico"
+
+
+;;;;;;;;;; Kape for file
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithKape]
+@="Parse with Kape"
+"Icon"="C:\\ForensicPrograms\\EZTools\\kape\\kape.exe"
+[HKEY_CLASSES_ROOT\*\shell\ForensicsTools\shell\ParseWithKape\command]
+@="powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"Start-Process 'C:\\ForensicPrograms\\EZTools\\kape\\kape.exe' -ArgumentList '--msource','%V','--mdest','C:\\Cases\\Analysis\\!EvidenceName!\\Kape','--module','Chainsaw,!EZParser,Hayabusa' -Verb RunAs\""
+
+
+
+;;;;;;;;;;;;ForensicsTools Folders;;;;;;;;;;;;
+; Creating Menu with cmd forensics tools for folders
+; Output directory is "C:\Cases\Analysis\!EvidenceName!" for tools which require output directory
+
+
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools]
+"MUIVerb"="Forensics Tools for Folders"
+"SubCommands"=""
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\Tools.ico"
+
+;;;;;;;;;; PECmd for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseDirWithPECmd]
+@="Parse with PECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\PECmd.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseDirWithPECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\PECmd.exe\" -d \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\ProgramExecution\""
+
+;;;;;;;;;; Kape for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseDirWithKape]
+@="Parse with Kape"
+"Icon"="C:\\ForensicPrograms\\EZTools\\kape\\kape.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseDirWithKape\command]
+@="powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"Start-Process 'C:\\ForensicPrograms\\EZTools\\kape\\kape.exe' -ArgumentList '--msource','%V','--mdest','C:\\Cases\\Analysis\\!EvidenceName!\\Kape','--module','Chainsaw,!EZParser,Hayabusa' -Verb RunAs\""
+
+;;;;;;;;;; LECmd for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseDirWithLECmd]
+@="Parse with LECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\LECmd.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseDirWithLECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\LECmd.exe\" -d \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\FileFolderAccess\""
+
+;;;;;;;;;; RBCmd for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithRBCmd]
+@="Parse with RBCmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\RBCmd.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithRBCmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\RBCmd.exe\" -d \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\FileDeletion\""
+
+;;;;;;;;;; SBECmd for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithSBECmd]
+@="Parse with SBECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\SBECmd.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithSBECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\SBECmd.exe\" -d \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\FileFolderAccess\""
+
+;;;;;;;;;; EvtxECmd for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithEvtxECmd]
+@="Parse with EvtxECmd"
+"Icon"="C:\\ForensicPrograms\\EZTools\\EvtxeCmd\\EvtxECmd.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithEvtxECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\EvtxeCmd\\EvtxECmd.exe\" -d \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\EventLog\""
+
+;;;;;;;;;; SrumECmd for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithSrumECmd]
+@="Parse with SrumECmd (recursively look for SRUDB.dat and SOFTWARE hive)"
+"Icon"="C:\\ForensicPrograms\\EZTools\\SrumECmd.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithSrumECmd\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\EZTools\\SrumECmd.exe\" -d \"%V\" --csv C:\\Cases\\Analysis\\!EvidenceName!\\SRUM\""
+
+;;;;;;;;;; loki for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ScanWithLoki]
+@="Scan with Loki"
+"Icon"="C:\\ForensicPrograms\\loki\\loki.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ScanWithLoki\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\loki\\loki.exe\" -p \"%V\" -l C:\\Cases\\Analysis\\!EvidenceName!\\loki.txt\""
+
+;;;;;;;;;; hayabusa for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithHayabusaLogonSummary]
+@="Run hayabusa logon-summary"
+"Icon"="C:\\ForensicPrograms\\hayabusa-3.5.0-win-x64\\hayabusa.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithHayabusaLogonSummary\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\hayabusa-3.5.0-win-x64\\hayabusa.exe\" logon-summary -d \"%V\" -o C:\\Cases\\Analysis\\!EvidenceName!\\EventLog\\logon-summary\""
+;"Icon"="C:\\ForensicPrograms\\.ico"
+
+;;;;;;;;;; hayabusa for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithHayabusaTimeline]
+@="Run hayabusa csv-timeline"
+"Icon"="C:\\ForensicPrograms\\hayabusa-3.5.0-win-x64\\hayabusa.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithHayabusaTimeline\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\hayabusa-3.5.0-win-x64\\hayabusa.exe\" csv-timeline -d \"%V\" -o C:\\Cases\\Analysis\\!EvidenceName!\\EventLog\\csv-timeline.csv\""
+
+;;;;;;;;;; Chainsaw
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\HuntWithChainsaw]
+@="Hunt with Chainsaw"
+"Icon"="C:\\ForensicPrograms\\Chainsaw\\chainsaw.exe"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\HuntWithChainsaw\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"C:\\ForensicPrograms\\Chainsaw\\chainsaw.exe\" hunt \"%V\" -s \"C:\\ForensicPrograms\\Chainsaw\\sigma\" --mapping \"C:\\ForensicPrograms\\Chainsaw\\mappings\\sigma-event-logs-all.yml\" -r \"C:\\ForensicPrograms\\Chainsaw\\rules\" --csv --output C:\\Cases\\Analysis\\!EvidenceName!\\EventLog\""
+
+;;;;;;;;;; Evilize for folder
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithEvilize]
+@="Run Evilize Evtx"
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\PowerShell.ico"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\ParseWithEvilize\command]
+@="\"powershell.exe\" -NoExit -ExecutionPolicy Bypass \"\"C:\\ForensicPrograms\\Evilize-Local-LogParser\\Evilize.ps1\" -security \"%V\"\""
+
+;;;;;;;;;; dissect list of plugins
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\Dissect]
+"MUIVerb"="Parse with Dissect"
+"SubCommands"=""
+"Icon"="C:\\ForensicPrograms\\DFIR_Toolbar\\icons\\Tools\\dissect.ico"
+
+;;;;;;;;;;;;;;;;;;;; Users Plugin
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\Dissect\shell\RunUsersPlugin]
+@="Run users Plugin"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\Dissect\shell\RunUsersPlugin\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"target-query\" \"%V\" -f users\""
+;"Icon"="C:\\ForensicPrograms\\.ico"
+
+;;;;;;;;;;;;;;;;;;;; osinfo Plugin
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\Dissect\shell\RunOsinfoPlugin]
+@="Run osinfo Plugin"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\Dissect\shell\RunOsinfoPlugin\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"target-query\" \"%V\" -f osinfo\""
+;"Icon"="C:\\ForensicPrograms\\.ico"
+
+;;;;;;;;;;;;;;;;;;;; runkeys Plugin
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\Dissect\shell\RunrunkeysPlugin]
+@="Run runkeys Plugin"
+[HKEY_CLASSES_ROOT\Folder\shell\ForensicsTools\shell\Dissect\shell\RunrunkeysPlugin\command]
+@="\"cmd.exe\" /V:ON /d /k \"\"target-query\" \"%V\" -f runkeys\""
+;"Icon"="C:\\ForensicPrograms\\.ico"
