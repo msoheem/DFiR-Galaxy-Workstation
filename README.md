@@ -35,7 +35,7 @@ To update:
 
 You can download the **DFiR Galaxy Workstation VM** from:
 
-🔗 [https://1024terabox.com/s/1wZQkIOvYAsG-aFt3HOachQ](https://1024terabox.com/s/1wZQkIOvYAsG-aFt3HOachQ)
+🔗 [https://1024terabox.com/s/1qTKJ1PM-NxdnFVSNbSmzHg](https://1024terabox.com/s/1qTKJ1PM-NxdnFVSNbSmzHg)
 
 ---
 
