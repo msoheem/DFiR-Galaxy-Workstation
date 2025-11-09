@@ -25,8 +25,9 @@ function Run-Plaso {
     $storage = "C:\Cases\Analysis\$($env:EvidenceName)\Supertimeline\storage.plaso"
     # --- Step 4: Evidence path ---
     $evidence = Read-Host "Enter evidence path (directory or file)"
-
+    
     # --- Step 5: File system timeline (body file) ---
+    Write-Host "**Note Add file system body file only if you disabled filestat parser in previous step**" -ForegroundColor Red
     $addFsTimeline = Read-Host "Do you want to add a file system timeline? (y/n)"
     $fsBodyFile = $null
     if ($addFsTimeline -match '^[Yy]') {
@@ -87,3 +88,4 @@ function Run-Plaso {
 C:\ForensicPrograms\plaso-main\venv\Scripts\Activate.ps1
 # Run it
 Run-Plaso
+
