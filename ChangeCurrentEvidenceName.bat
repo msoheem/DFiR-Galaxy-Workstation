@@ -20,7 +20,7 @@ mkdir "%BasePath%\%EvidenceName%\FileFolderAccess"
 mkdir "%BasePath%\%EvidenceName%\ProgramExecution"
 mkdir "%BasePath%\%EvidenceName%\Registry"
 mkdir "%BasePath%\%EvidenceName%\SRUMDatabase"
-mkdir "%BasePath%\%EvidenceName%\FileDetetion"
+mkdir "%BasePath%\%EvidenceName%\FileDeletion"
 mkdir "%BasePath%\%EvidenceName%\RDPBitmap"
 mkdir "%BasePath%\%EvidenceName%\Kape"
 mkdir "%BasePath%\%EvidenceName%\Supertimeline"
@@ -29,5 +29,6 @@ echo.
 echo Evidence folder and subfolders created successfully at:
 echo %BasePath%\%EvidenceName%
 echo EvidenceName environment variable set to: %EvidenceName%
+
 
 pause
